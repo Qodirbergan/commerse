@@ -9,10 +9,10 @@ export default function BasketList(props) {
     }, 0);
 
     return(
-        <div className="bsk">
+        <div className=" basket-list ">
             <ul className="list-group">
-                <li className="collection-item active">
-                    Basket
+                <li className="list-group-item d-flex justify-content-center">
+                   <p> Basket</p>
                 </li>
                 {order.length ? order.map(item => {
                     return(
@@ -24,11 +24,12 @@ export default function BasketList(props) {
                             incrementQuantity={incrementQuantity}
                         />
                     )
-                }): <li className="list-group-item list-group-item-warning">Basket is empty</li>}
-                <li className="collection-item active">
+                }): <li className="list-group-item list-group-item-danger">Basket is empty</li>}
+                <li className="list-group-item list-group-item-warning d-flex justify-content-center">
                     Total Price: {totalPrice} <b>$</b>
                 </li>
-                <MDBIcon fas icon="times" onClick={props.handleBasketShow} />
+
+                <MDBIcon className='basket-close' fas icon="times" onClick={props.handleBasketShow} />
 
             </ul>
         </div>
